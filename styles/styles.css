@@ -17,6 +17,11 @@
     background-color: #cbdeff;
 }
 
+.main {
+    position: relative;
+    flex-grow: 1;
+}
+
 .footer {
     position: relative;
     height: 50px;
