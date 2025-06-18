@@ -12,12 +12,9 @@ class Footer {
 		return footer;
 	}
 
-	showFooter() {
-		const footer = this.#createFooter();
-		return footer;
+	getFooter() {
+		return this.#createFooter();
 	}
 }
 
-const footer = new Footer().showFooter();
-
-export default footer;
+export default Footer;
