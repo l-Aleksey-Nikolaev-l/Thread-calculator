@@ -1,3 +1,5 @@
+import pointsContainer from './points_container.js';
+
 class Main {
 	constructor() {
 	}
@@ -10,6 +12,7 @@ class Main {
 
 	showMain() {
 		const main = this.#createMain();
+		main.appendChild(pointsContainer);
 		return main;
 	}
 }
