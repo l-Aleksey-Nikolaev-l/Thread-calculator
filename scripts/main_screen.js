@@ -1,22 +1,20 @@
-import pointsContainer from './points_container.js';
+import PointsContainer from './points_container.js';
 
-class Main {
+class MainSection {
 	constructor() {
+		this.pointContainer = new PointsContainer().getPointsContainer();
 	}
 
-	#createMain() {
-		const main = document.createElement('main');
-		main.classList.add('main');
-		return main;
+	#createMainSection() {
+		const mainSection = document.createElement('main');
+		mainSection.classList.add('main');
+		mainSection.appendChild(this.pointContainer);
+		return mainSection;
 	}
 
-	showMain() {
-		const main = this.#createMain();
-		main.appendChild(pointsContainer);
-		return main;
+	getMainSection() {
+		return this.#createMainSection();
 	}
 }
 
-const main = new Main().showMain();
-
-export default main;
+export default MainSection;
