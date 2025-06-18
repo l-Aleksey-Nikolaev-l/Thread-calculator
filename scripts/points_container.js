@@ -1,6 +1,6 @@
 import PointBlock from './point_block.js';
 
-class Points_container {
+class PointsContainer {
 	constructor() {
 		this.coordinatesPoint = new PointBlock();
 	}
@@ -8,9 +8,9 @@ class Points_container {
 	#createPointsContainer() {
 		const pointsContainer = document.createElement('div');
 		const addPointButton = this.#createAddPointButton();
-		const startPoint = this.coordinatesPoint.addPointBlock();
-		const nextPoint = this.coordinatesPoint.addPointBlock();
 		pointsContainer.classList.add('points_container');
+		const startPoint = this.addPointBlock();
+		const nextPoint = this.addPointBlock();
 		pointsContainer.append(startPoint, nextPoint, addPointButton);
 		return pointsContainer;
 	}
@@ -18,15 +18,18 @@ class Points_container {
 	#createAddPointButton() {
 		const addPointButton = document.createElement('button');
 		addPointButton.classList.add('add_point_button')
+		addPointButton.setAttribute('data-add-point', 'add');
 		addPointButton.textContent = 'Add point';
 		return addPointButton;
 	}
 
-	addPointContainer() {
+	addPointBlock() {
+		return this.coordinatesPoint.addPointBlock();
+	}
+
+	getPointsContainer() {
 		return this.#createPointsContainer();
 	}
 }
 
-const pointsContainer = new Points_container().addPointContainer();
-
-export default pointsContainer;
+export default PointsContainer;
