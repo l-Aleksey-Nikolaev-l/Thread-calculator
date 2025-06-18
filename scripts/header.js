@@ -8,12 +8,9 @@ class Header {
 		return header;
 	}
 
-	showHeader() {
-		const header = this.#createHeader();
-		return header;
+	getHeader() {
+		return this.#createHeader();
 	}
 }
 
-const header = new Header().showHeader();
-
-export default header;
+export default Header;
