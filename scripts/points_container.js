@@ -15,14 +15,6 @@ class PointsContainer {
 		return pointsContainer;
 	}
 
-	#createAddPointButton() {
-		const addPointButton = document.createElement('button');
-		addPointButton.classList.add('add_point_button')
-		addPointButton.setAttribute('data-add-point', 'add');
-		addPointButton.textContent = 'Add point';
-		return addPointButton;
-	}
-
 	addPointBlock() {
 		return this.coordinatesPoint.addPointBlock();
 	}
