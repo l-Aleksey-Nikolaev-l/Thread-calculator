@@ -20,6 +20,10 @@ class PointBlock {
 	addPointBlock() {
 		return this.#createBlockContainer();
 	}
+
+	removePointBlock() {
+		this.blockNumber -= 1;
+	}
 }
 
 export default PointBlock;
