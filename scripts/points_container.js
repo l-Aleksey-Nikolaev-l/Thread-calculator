@@ -9,7 +9,9 @@ class PointsContainer {
 	}
 
 	addPointBlock() {
-		return this.coordinatesPoint.addPointBlock();
+		const startPoint =  this.coordinatesPoint.addPointBlock();
+		const nextPoint = this.coordinatesPoint.addPointBlock();
+		this.pointsContainer.append(startPoint, nextPoint);
 	}
 
 	getPointsContainer() {
