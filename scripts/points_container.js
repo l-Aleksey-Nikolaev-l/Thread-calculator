@@ -15,7 +15,7 @@ class PointsContainer {
 	}
 
 	getPointsContainer() {
-		return this.#createPointsContainer();
+		return this.pointsContainer;
 	}
 }
 
