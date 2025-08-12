@@ -27,6 +27,13 @@
     padding: 24px 10%;
 }
 
+.points_container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+
+
 .footer {
     position: relative;
     height: 50px;
