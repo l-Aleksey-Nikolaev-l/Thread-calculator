@@ -1,4 +1,5 @@
 import PointsContainer from './points_container.js';
+import collectPoints from './calculate_points.js';
 
 const pointsContainer = document.getElementsByClassName('points_container');
 const buttonsContainer = document.getElementsByClassName('buttons_container');
@@ -14,6 +15,8 @@ function startListeners() {
 			pointsContainer[0].removeChild(pointsContainer[0].lastChild);
 			pointBlock.removePointBlock();
 		} else if (buttonData.calculatePoints) {
+			const valueElementsArray = pointsContainer[0].getElementsByClassName('coordinate_value');
+			collectPoints(valueElementsArray);
 			console.log('calculate point');
 		}
 	});
