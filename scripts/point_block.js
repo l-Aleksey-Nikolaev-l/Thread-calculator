@@ -13,7 +13,8 @@ class PointBlock {
 		pointValue.classList.add('point_value');
 		pointValue.id = `point_${this.blockNumber}`;
 		pointLabel.textContent = `Point ${this.blockNumber} = Z`
-		pointValue.value = '0';
+		pointValue.value = '';
+		pointValue.placeholder = '0'
 		blockContainer.append(pointLabel, pointValue);
 		this.blockNumber += 1;
 		return blockContainer;
