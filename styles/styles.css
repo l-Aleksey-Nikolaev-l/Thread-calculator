@@ -21,7 +21,7 @@
 .main {
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-grow: 1;
     row-gap: 16px;
     padding: 24px 10%;
