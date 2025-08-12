@@ -7,7 +7,7 @@ class ButtonsContainer {
 
 	#createAddPointButton() {
 		const addPointButton = document.createElement('button');
-		addPointButton.classList.add('add_point_button')
+		addPointButton.classList.add('control_button', 'add_point_button')
 		addPointButton.setAttribute('data-add-point', 'add');
 		addPointButton.textContent = 'Add point';
 		return addPointButton;
@@ -15,7 +15,7 @@ class ButtonsContainer {
 
 	#createRemovePointButton() {
 		const removePointButton = document.createElement('button');
-		removePointButton.classList.add('remove_point_button')
+		removePointButton.classList.add('control_button', 'remove_point_button')
 		removePointButton.setAttribute('data-remove-point', 'remove');
 		removePointButton.textContent = 'Remove last point';
 		return removePointButton;
@@ -23,7 +23,7 @@ class ButtonsContainer {
 
 	#createCalculatePointButton() {
 		const calculatePointButton = document.createElement('button');
-		calculatePointButton.classList.add('calculate_points_button')
+		calculatePointButton.classList.add('control_button', 'calculate_points_button')
 		calculatePointButton.setAttribute('data-calculate-points', 'calculate');
 		calculatePointButton.textContent = 'Calculate';
 		return calculatePointButton;
