@@ -7,7 +7,13 @@ function collectPoints(valueElementsArray) {
 }
 
 function calculatePoints(pointsArray) {
-	console.log(pointsArray);
+	const outputArea = document.getElementById('output_area');
+	outputArea.textContent = '';
+	pointsArray.map(currentPointZ => {
+		const cAxisPoint = (currentPointZ / 1.2) * 360;
+		const newBlock = `Z${currentPointZ}. C${cAxisPoint}. F5000.`;
+		outputArea.textContent += `${newBlock}\n`;
+	});
 }
 
 export default collectPoints;
