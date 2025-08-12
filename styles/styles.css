@@ -33,6 +33,12 @@
     row-gap: 8px;
 }
 
+.point_block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 4px;
+}
 
 .footer {
     position: relative;
