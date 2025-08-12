@@ -9,7 +9,9 @@ class PointBlock {
 		const coordinateValue = document.createElement('input');
 		blockContainer.classList.add('point_block');
 		coordinateLabel.classList.add('coordinate_label');
+		coordinateLabel.setAttribute('for', `coordinate_${this.blockNumber}`);
 		coordinateValue.classList.add('coordinate_value');
+		coordinateValue.id = `coordinate_${this.blockNumber}`;
 		coordinateLabel.textContent = `Point ${this.blockNumber} = Z`
 		coordinateValue.value = '0';
 		blockContainer.append(coordinateLabel, coordinateValue);
