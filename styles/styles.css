@@ -112,6 +112,18 @@
     background-color: rgba(156, 54, 54, 0.75);
 }
 
+.calculate_points_button {
+    background-color: #cbdeff;
+}
+
+.calculate_points_button:hover {
+    background-color: #9fc2ff;
+}
+
+.calculate_points_button:active {
+    background-color: #7eabfb;
+}
+
 .footer {
     position: relative;
     height: 50px;
