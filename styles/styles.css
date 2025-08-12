@@ -41,6 +41,10 @@
     column-gap: 4px;
 }
 
+.point_label {
+    font-size: 1.2rem;
+}
+
 .footer {
     position: relative;
     height: 50px;
