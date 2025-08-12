@@ -53,6 +53,21 @@
     border-radius: 4px;
 }
 
+.point_value:focus {
+    border: none;
+    outline: none;
+}
+
+.point_value::placeholder {
+    color: red;
+    font-style: italic;
+    opacity: 0.35;
+}
+
+.point_value:focus::placeholder {
+    color: transparent;
+}
+
 .footer {
     position: relative;
     height: 50px;
