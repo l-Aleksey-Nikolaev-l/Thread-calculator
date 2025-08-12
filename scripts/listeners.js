@@ -17,7 +17,6 @@ function startListeners() {
 		} else if (buttonData.calculatePoints) {
 			const valueElementsArray = pointsContainer[0].getElementsByClassName('point_value');
 			collectPoints(valueElementsArray);
-			console.log('calculate point');
 		}
 	});
 }
