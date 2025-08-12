@@ -45,6 +45,14 @@
     font-size: 1.2rem;
 }
 
+.point_value {
+    padding: 4px;
+    font-size: 1.2rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 4px;
+}
+
 .footer {
     position: relative;
     height: 50px;
