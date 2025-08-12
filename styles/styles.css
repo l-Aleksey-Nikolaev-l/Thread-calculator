@@ -37,6 +37,15 @@
     width: 100%;
 }
 
+.output_section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    row-gap: 16px;
+    width: 100%;
+}
+
 .points_container {
     display: flex;
     flex-direction: column;
