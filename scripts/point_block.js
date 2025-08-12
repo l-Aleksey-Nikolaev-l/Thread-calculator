@@ -5,16 +5,16 @@ class PointBlock {
 
 	#createBlockContainer() {
 		const blockContainer = document.createElement('div');
-		const coordinateLabel = document.createElement('label');
-		const coordinateValue = document.createElement('input');
+		const pointLabel = document.createElement('label');
+		const pointValue = document.createElement('input');
 		blockContainer.classList.add('point_block');
-		coordinateLabel.classList.add('coordinate_label');
-		coordinateLabel.setAttribute('for', `coordinate_${this.blockNumber}`);
-		coordinateValue.classList.add('coordinate_value');
-		coordinateValue.id = `coordinate_${this.blockNumber}`;
-		coordinateLabel.textContent = `Point ${this.blockNumber} = Z`
-		coordinateValue.value = '0';
-		blockContainer.append(coordinateLabel, coordinateValue);
+		pointLabel.classList.add('point_label');
+		pointLabel.setAttribute('for', `point_${this.blockNumber}`);
+		pointValue.classList.add('point_value');
+		pointValue.id = `point_${this.blockNumber}`;
+		pointLabel.textContent = `Point ${this.blockNumber} = Z`
+		pointValue.value = '0';
+		blockContainer.append(pointLabel, pointValue);
 		this.blockNumber += 1;
 		return blockContainer;
 	}
