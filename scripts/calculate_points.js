@@ -25,10 +25,18 @@ function managePoints(xPointsArray, zPointsArray) {
 	const feedRate = Number(feedRateValue.value) ? Number(feedRateValue.value) : 0;
 	const twoStarts = startsToggle.checked;
 	outputArea.value = '';
+	calculatePoints(xPointsArray, zPointsArray, pitch, startAngle, feedRate);
 	if (twoStarts) {
 		startAngle += 180;
+		calculatePoints(xPointsArray, zPointsArray, pitch, startAngle, feedRate);
 	}
 }
 
+function calculatePoints(xPointsArray, zPointsArray, pitch, startAngle, feedRate) {
+	zPointsArray.map((currentPointZ, index) => {
+		const newPointC = ((currentPointZ / pitch) * (360)) + startAngle;
+		const currentPointX = xPointsArray[index];
+	});
+}
 
 export default collectPoints;
