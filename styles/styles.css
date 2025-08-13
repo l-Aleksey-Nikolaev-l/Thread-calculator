@@ -79,6 +79,13 @@
     padding-right: 108px;
 }
 
+.point_field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 6px;
+}
+
 .point_label {
     font-size: 1.2rem;
 }
