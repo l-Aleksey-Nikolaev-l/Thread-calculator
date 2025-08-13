@@ -15,7 +15,7 @@ function startListeners() {
 			pointsContainer[0].removeChild(pointsContainer[0].lastChild);
 			pointBlock.removePointBlock();
 		} else if (buttonData.calculatePoints) {
-			const valueElementsArray = pointsContainer[0].getElementsByClassName('point_value');
+			const valueElementsArray = pointsContainer[0].getElementsByClassName('point_value_Z');
 			collectPoints(valueElementsArray);
 		}
 	});
