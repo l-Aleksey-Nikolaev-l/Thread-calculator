@@ -11,9 +11,6 @@ function collectPoints() {
 	managePoints(xPointsArray, zPointsArray);
 }
 
-
-
-
 function managePoints(xPointsArray, zPointsArray) {
 	const startAngleValue = document.getElementById('start_angle_input');
 	const pitchValue = document.getElementById('pitch_input');
