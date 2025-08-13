@@ -1,9 +1,11 @@
+import SettingsBlock from './settings_block.js';
 import PointsContainer from './points_container.js';
 import ButtonsContainer from './buttons_block.js';
 import Output from './output_field.js';
 
 class MainSection {
 	constructor() {
+		this.settingsContainer = new SettingsBlock().getSettingsContainer();
 		this.pointContainer = new PointsContainer().getPointsContainer();
 		this.inputButtonsContainer = new ButtonsContainer().getInputButtonsContainer();
 		this.outputButtonsContainer = new ButtonsContainer().getOutputButtonsContainer();
@@ -22,6 +24,7 @@ class MainSection {
 		const inputSection = this.#createSection('input_section');
 		const outputSection = this.#createSection('output_section');
 		inputSection.append(
+		  this.settingsContainer,
 		  this.pointContainer,
 		  this.inputButtonsContainer);
 		outputSection.append(
