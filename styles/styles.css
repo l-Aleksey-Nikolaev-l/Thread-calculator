@@ -74,6 +74,11 @@
     column-gap: 4px;
 }
 
+.block_label {
+    font-size: 1.2rem;
+    padding-right: 108px;
+}
+
 .point_label {
     font-size: 1.2rem;
 }
