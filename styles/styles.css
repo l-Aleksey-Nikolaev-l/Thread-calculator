@@ -64,14 +64,14 @@
 .points_container {
     display: flex;
     flex-direction: column;
-    row-gap: 8px;
+    row-gap: 12px;
 }
 
 .point_block {
     display: flex;
     flex-direction: row;
     align-items: center;
-    column-gap: 4px;
+    column-gap: 12px;
 }
 
 .block_label {
