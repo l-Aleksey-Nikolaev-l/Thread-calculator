@@ -5,7 +5,8 @@ import Output from './output_field.js';
 class MainSection {
 	constructor() {
 		this.pointContainer = new PointsContainer().getPointsContainer();
-		this.buttonsContainer = new ButtonsContainer().getButtonsContainer();
+		this.inputButtonsContainer = new ButtonsContainer().getInputButtonsContainer();
+		this.outputButtonsContainer = new ButtonsContainer().getOutputButtonsContainer();
 		this.outputArea = new Output().getOutputArea();
 	}
 
@@ -20,8 +21,12 @@ class MainSection {
 		mainSection.classList.add('main');
 		const inputSection = this.#createSection('input_section');
 		const outputSection = this.#createSection('output_section');
-		inputSection.append(this.pointContainer, this.buttonsContainer);
-		outputSection.append(this.outputArea);
+		inputSection.append(
+		  this.pointContainer,
+		  this.inputButtonsContainer);
+		outputSection.append(
+		  this.outputArea,
+		  this.outputButtonsContainer);
 		mainSection.append(inputSection, outputSection);
 		return mainSection;
 	}
