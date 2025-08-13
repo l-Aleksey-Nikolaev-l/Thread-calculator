@@ -5,13 +5,14 @@ class PointsContainer {
 		this.coordinatesPoint = new PointBlock();
 		this.pointsContainer = document.createElement('div');
 		this.pointsContainer.classList.add('points_container');
-		this.addPointBlock();
+		this.addPointBlock(2);
 	}
 
-	addPointBlock() {
-		const startPoint =  this.coordinatesPoint.addPointBlock();
-		const nextPoint = this.coordinatesPoint.addPointBlock();
-		this.pointsContainer.append(startPoint, nextPoint);
+	addPointBlock(blocksQuantity) {
+		for(let i = 0; i < blocksQuantity; i++) {
+			const newPointBlock =  this.coordinatesPoint.addPointBlock();
+			this.pointsContainer.append(newPointBlock);
+		}
 	}
 
 	getPointsContainer() {
