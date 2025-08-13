@@ -8,20 +8,27 @@ function collectPoints() {
 		xPointsArray.push(Number(xValueElementsArray[point].value));
 		zPointsArray.push(Number(zValueElementsArray[point].value));
 	}
-	calculatePoints(pointsArray);
+	managePoints(xPointsArray, zPointsArray);
 }
 
 
 
 
-function calculatePoints(pointsArray) {
+function managePoints(xPointsArray, zPointsArray) {
+	const startAngleValue = document.getElementById('start_angle_input');
+	const pitchValue = document.getElementById('pitch_input');
+	const feedRateValue = document.getElementById('feed_rate_input');
+	const startsToggle = document.getElementById('starts_toggle');
 	const outputArea = document.getElementById('output_area');
-	outputArea.textContent = '';
-	pointsArray.map(currentPointZ => {
-		const cAxisPoint = (currentPointZ / 1.2) * 360;
-		const newBlock = `Z${currentPointZ}. C${cAxisPoint}. F5000.`;
-		outputArea.textContent += `${newBlock}\n`;
-	});
+	let startAngle = Number(startAngleValue.value) ? Number(startAngleValue.value) : 0;
+	const pitch = Number(pitchValue.value) ? Number(pitchValue.value) : 1;
+	const feedRate = Number(feedRateValue.value) ? Number(feedRateValue.value) : 0;
+	const twoStarts = startsToggle.checked;
+	outputArea.value = '';
+	if (twoStarts) {
+		startAngle += 180;
+	}
 }
+
 
 export default collectPoints;
