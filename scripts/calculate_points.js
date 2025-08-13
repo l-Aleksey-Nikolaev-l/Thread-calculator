@@ -36,7 +36,21 @@ function calculatePoints(xPointsArray, zPointsArray, pitch, startAngle, feedRate
 	zPointsArray.map((currentPointZ, index) => {
 		const newPointC = ((currentPointZ / pitch) * (360)) + startAngle;
 		const currentPointX = xPointsArray[index];
+		writeNC(currentPointX, currentPointZ, newPointC, feedRate);
 	});
+}
+
+function writeNC(currentPointX, currentPointZ, newPointC, feedRate) {
+	const outputArea = document.getElementById('output_area');
+	outputArea.value += `X${convertToString(currentPointX)} `;
+	outputArea.value += `Z${convertToString(currentPointZ)} `;
+	outputArea.value += `C${convertToString(newPointC)} `;
+	outputArea.value += `F${convertToString(feedRate)}`;
+	outputArea.value += `\n`;
+}
+
+function convertToString(point) {
+	return Number.isInteger(point) ? String(point) + '.' : String(point);
 }
 
 export default collectPoints;
