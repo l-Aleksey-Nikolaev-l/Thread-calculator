@@ -31,8 +31,29 @@ class ButtonsContainer {
 		return buttonsContainer;
 	}
 
+	#createOutputButtonsBlock() {
+		const buttonsContainer = document.createElement('div');
+		buttonsContainer.classList.add('buttons_container', 'output_buttons_container');
+		const clearButton = this.#createButton(
+		  'clear_output',
+		  'clear-output',
+		  'clear',
+		  'Clear');
+		const copyButton = this.#createButton(
+		  'copy_output',
+		  'copy-output',
+		  'copy',
+		  'Copy');
+		buttonsContainer.append(clearButton, copyButton);
+		return buttonsContainer;
+	}
+
 	getInputButtonsContainer() {
 		return this.#createInputButtonsBlock();
+	}
+
+	getOutputButtonsContainer() {
+		return this.#createOutputButtonsBlock();
 	}
 }
 
