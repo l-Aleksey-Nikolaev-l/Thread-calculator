@@ -7,6 +7,7 @@ class PointBlock {
 		const pointField = document.createElement('div');
 		const pointLabel = document.createElement('label');
 		const pointValue = document.createElement('input');
+		pointField.classList.add('point_field');
 		pointLabel.classList.add('point_label');
 		pointLabel.setAttribute('for', `${fieldName}_point_${this.blockNumber}`);
 		pointValue.classList.add('point_value', `point_value_${fieldName}`);
