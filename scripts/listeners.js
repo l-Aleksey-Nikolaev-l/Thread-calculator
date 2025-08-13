@@ -19,6 +19,16 @@ function startListeners() {
 			collectPoints(valueElementsArray);
 		}
 	});
+
+	buttonsContainer[1].addEventListener('click', (event) => {
+		const outputArea = document.getElementById('output_area');
+		const buttonData = event.target.dataset;
+		if (buttonData.clearOutput) {
+			outputArea.value = '';
+		} else if (buttonData.copyOutput) {
+			navigator.clipboard.writeText(outputArea.value).then();
+		}
+	});
 }
 
 export default startListeners;
