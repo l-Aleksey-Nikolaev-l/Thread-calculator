@@ -1,43 +1,38 @@
 class ButtonsContainer {
-	constructor() {
-		this.buttonsContainer = document.createElement('div');
-		this.buttonsContainer.classList.add('buttons_container');
-		this.#addButtonsBlock();
-	}
+	constructor() {}
 
-	#createAddPointButton() {
-		const addPointButton = document.createElement('button');
-		addPointButton.classList.add('control_button', 'add_point_button')
-		addPointButton.setAttribute('data-add-point', 'add');
-		addPointButton.textContent = 'Add point';
-		return addPointButton;
-	}
-
-	#createRemovePointButton() {
-		const removePointButton = document.createElement('button');
-		removePointButton.classList.add('control_button', 'remove_point_button')
-		removePointButton.setAttribute('data-remove-point', 'remove');
-		removePointButton.textContent = 'Remove last point';
-		return removePointButton;
-	}
-
-	#createCalculatePointButton() {
+	#createButton(className, dataText, dataValue,  buttonText) {
 		const calculatePointButton = document.createElement('button');
-		calculatePointButton.classList.add('control_button', 'calculate_points_button')
-		calculatePointButton.setAttribute('data-calculate-points', 'calculate');
-		calculatePointButton.textContent = 'Calculate';
+		calculatePointButton.classList.add('control_button', `${className}_button`)
+		calculatePointButton.setAttribute(`data-${dataText}`, dataValue);
+		calculatePointButton.textContent = buttonText;
 		return calculatePointButton;
 	}
 
-	#addButtonsBlock() {
-		const addPointButton = this.#createAddPointButton();
-		const removePointButton = this.#createRemovePointButton();
-		const calculatePointsButton = this.#createCalculatePointButton();
-		this.buttonsContainer.append(addPointButton, removePointButton, calculatePointsButton);
+	#createInputButtonsBlock() {
+		const buttonsContainer = document.createElement('div');
+		buttonsContainer.classList.add('buttons_container');
+		const addPointButton = this.#createButton(
+		  'add_point',
+		  'add-point',
+		  'add',
+		  'Add point');
+		const removePointButton = this.#createButton(
+		  'remove_point',
+		  'remove-point',
+		  'remove',
+		  'Remove last point');
+		const calculatePointsButton = this.#createButton(
+		  'calculate_points',
+		  'calculate-points',
+		  'calculate',
+		  'Calculate');
+		buttonsContainer.append(addPointButton, removePointButton, calculatePointsButton);
+		return buttonsContainer;
 	}
 
-	getButtonsContainer() {
-		return this.buttonsContainer;
+	getInputButtonsContainer() {
+		return this.#createInputButtonsBlock();
 	}
 }
 
