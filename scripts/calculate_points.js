@@ -1,10 +1,18 @@
-function collectPoints(valueElementsArray) {
-	let pointsArray = [];
-	for (const point of valueElementsArray) {
-		pointsArray.push(Number(point.value));
+function collectPoints() {
+	const pointsContainer = document.getElementsByClassName('points_container');
+	const xValueElementsArray = pointsContainer[0].getElementsByClassName('point_value_X');
+	const zValueElementsArray = pointsContainer[0].getElementsByClassName('point_value_Z');
+	let xPointsArray = [];
+	let zPointsArray = [];
+	for (let point = 0; point < xValueElementsArray.length; point++) {
+		xPointsArray.push(Number(xValueElementsArray[point].value));
+		zPointsArray.push(Number(zValueElementsArray[point].value));
 	}
 	calculatePoints(pointsArray);
 }
+
+
+
 
 function calculatePoints(pointsArray) {
 	const outputArea = document.getElementById('output_area');
