@@ -32,9 +32,10 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    row-gap: 24px;
-    width: 100%;
+    row-gap: 36px;
+    border: 1px solid #cbdeff;
+    border-radius: 16px;
+    padding: 16px;
 }
 
 .output_section {
