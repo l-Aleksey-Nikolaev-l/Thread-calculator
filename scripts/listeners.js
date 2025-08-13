@@ -10,13 +10,11 @@ function startListeners() {
 		const buttonData = event.target.dataset;
 		if (buttonData.addPoint) {
 			pointsContainer[0].appendChild(pointBlock.addPointBlock());
-		}
-		else if (buttonData.removePoint) {
+		} else if (buttonData.removePoint) {
 			pointsContainer[0].removeChild(pointsContainer[0].lastChild);
 			pointBlock.removePointBlock();
 		} else if (buttonData.calculatePoints) {
-			const valueElementsArray = pointsContainer[0].getElementsByClassName('point_value_Z');
-			collectPoints(valueElementsArray);
+			collectPoints();
 		}
 	});
 
