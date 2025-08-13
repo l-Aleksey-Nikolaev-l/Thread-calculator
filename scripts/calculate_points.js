@@ -25,11 +25,48 @@ function managePoints(xPointsArray, zPointsArray) {
 	const feedRate = Number(feedRateValue.value) ? Number(feedRateValue.value) : 0;
 	const twoStarts = startsToggle.checked;
 	outputArea.value = '';
+	addNCHeader(outputArea);
 	calculatePoints(xPointsArray, zPointsArray, pitch, startAngle, feedRate);
+
 	if (twoStarts) {
+		addNCSecondHeader(outputArea);
 		startAngle += 180;
 		calculatePoints(xPointsArray, zPointsArray, pitch, startAngle, feedRate);
 	}
+	addNCFooter(outputArea);
+}
+
+function addNCHeader(outputArea) {
+	outputArea.value += 'M18 C0.\n';
+	outputArea.value += 'G50 C0.\n';
+	outputArea.value += '\n';
+	outputArea.value += 'T0000 (T00 THREAD MILL)\n';
+	outputArea.value += '\n';
+	outputArea.value += 'M80 S3=5000\n';
+	outputArea.value += 'G0 Z-5. T00\n';
+	outputArea.value += 'X10. Y0.\n';
+	outputArea.value += 'G1 G98 Z0. F150.\n';
+	outputArea.value += '\n';
+	outputArea.value += '(START 1)\n';
+	outputArea.value += 'X2.\n';
+	outputArea.value += '\n';
+}
+
+function addNCSecondHeader(outputArea) {
+	outputArea.value += 'X10. F150.\n';
+	outputArea.value += '\n';
+	outputArea.value += '(START 2)\n';
+	outputArea.value += '\n';
+	outputArea.value += 'G0 Z-5. C180.\n';
+	outputArea.value += 'G1 Z0. F150.\n';
+	outputArea.value += 'X2.\n';
+}
+
+function addNCFooter(outputArea) {
+	outputArea.value += '\n';
+	outputArea.value += 'X10. F150.\n';
+	outputArea.value += 'G0 Z-5.\n';
+	outputArea.value += 'G0 U0. V0. W0. T0\n';
 }
 
 function calculatePoints(xPointsArray, zPointsArray, pitch, startAngle, feedRate) {
