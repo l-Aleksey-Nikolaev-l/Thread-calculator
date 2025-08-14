@@ -81,6 +81,10 @@ function calculatePoints(pitch, startAngle, feedRate) {
 	});
 }
 
+function calculateAxisC(currentPointZ, pitch, startAngle) {
+	return ((currentPointZ / pitch) * (360)) + startAngle;
+}
+
 function writeNC(currentPointX, currentPointZ, newPointC, feedRate) {
 	outputArea.value += `X${convertToString(currentPointX)} `;
 	outputArea.value += `Z${convertToString(currentPointZ)} `;
