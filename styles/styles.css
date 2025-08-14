@@ -60,7 +60,30 @@
     row-gap: 2px;
 }
 
-.starts_container {
+.tool_number_container {
+    grid-area: tool_number;
+}
+
+.variable_pitch_toggle_container {
+    grid-area: pitch_toggle;
+    align-items: center;
+    row-gap: 6px;
+}
+
+.start_angle_container {
+    grid-area: start_angle;
+}
+
+.common_pitch_container {
+    grid-area: common_pitch;
+}
+
+.feed_rate_container {
+    grid-area: feed_rate;
+}
+
+.starts_toggle_container {
+    grid-area: starts_toggle;
     align-items: center;
     row-gap: 6px;
 }
