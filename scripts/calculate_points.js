@@ -59,10 +59,6 @@ function addNCFirstHeader() {
 function addNCSecondHeader() {
 	outputArea.value += '\n';
 	outputArea.value += '(START 2)\n';
-	outputArea.value += '\n';
-	outputArea.value += 'G0 Z-5. C180.\n';
-	outputArea.value += 'G1 Z0. F150.\n';
-	outputArea.value += 'X2.\n';
 }
 
 function addNCFooter() {
