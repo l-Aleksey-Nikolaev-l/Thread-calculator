@@ -3,18 +3,18 @@ class PointBlock {
 		this.blockNumber = 1;
 	}
 
-	#addPointField(fieldName) {
+	#addPointField(className, idName,  placeHolder, labelText) {
 		const pointField = document.createElement('div');
 		const pointLabel = document.createElement('label');
 		const pointValue = document.createElement('input');
-		pointField.classList.add('point_field');
-		pointLabel.classList.add('point_label');
-		pointLabel.setAttribute('for', `${fieldName}_point_${this.blockNumber}`);
-		pointValue.classList.add('point_value', `point_value_${fieldName}`);
-		pointValue.id = `${fieldName}_point_${this.blockNumber}`;
-		pointLabel.textContent = `${fieldName}`
+		pointField.classList.add(`point_field`, `${className}`);
+		pointLabel.classList.add(`point_label`);
+		pointLabel.setAttribute('for', `${idName}_${this.blockNumber}`);
+		pointValue.classList.add('point_value', `point_value_${labelText}`);
+		pointValue.id = `${idName}_${this.blockNumber}`;
+		pointLabel.textContent = labelText;
 		pointValue.value = '';
-		pointValue.placeholder = '0 mm'
+		pointValue.placeholder = placeHolder;
 		pointField.append(pointLabel, pointValue);
 		return pointField;
 	}
@@ -22,12 +22,13 @@ class PointBlock {
 	#createBlockContainer() {
 		const blockContainer = document.createElement('div');
 		const blockLabel = document.createElement('p');
-		const pointX = this.#addPointField('X');
-		const pointZ = this.#addPointField('Z');
+		const pointX = this.#addPointField('point', 'x_point',  '0 mm', 'X');
+		const pointZ = this.#addPointField('point', 'z_point',  '0 mm', 'Z');
+		const pitch = this.#addPointField('variable_pitch', 'pitch_value',  '0', 'Pitch');
 		blockContainer.classList.add('point_block');
 		blockLabel.classList.add('block_label');
 		blockLabel.textContent = `Point ${this.blockNumber}:`
-		blockContainer.append(blockLabel, pointX, pointZ);
+		blockContainer.append(blockLabel, pointX, pointZ, pitch);
 		this.blockNumber += 1;
 		return blockContainer;
 	}
