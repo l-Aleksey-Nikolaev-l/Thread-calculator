@@ -3,13 +3,18 @@ let xPointsArray = [];
 let zPointsArray = [];
 // The main formula is: C = (Z / Pitch) * 360;
 
+function resetVariables() {
+	outputArea = null;
+	xPointsArray = [];
+	zPointsArray = [];
+}
+
 function collectPoints() {
+	resetVariables();
 	outputArea = document.getElementById('output_area');
 	const pointsContainer = document.getElementsByClassName('points_container');
 	const xValueElementsArray = pointsContainer[0].getElementsByClassName('point_value_X');
 	const zValueElementsArray = pointsContainer[0].getElementsByClassName('point_value_Z');
-	xPointsArray = [];
-	zPointsArray = [];
 	for (let point = 0; point < xValueElementsArray.length; point++) {
 		xPointsArray.push(Number(xValueElementsArray[point].value));
 		zPointsArray.push(Number(zValueElementsArray[point].value));
