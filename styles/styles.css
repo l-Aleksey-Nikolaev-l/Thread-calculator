@@ -39,10 +39,17 @@
 }
 
 .settings_container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    display: grid;
+    grid-template-areas:
+        "tool_number . ."
+        "start_angle common_pitch feed_rate"
+        "starts_toggle pitch_toggle pitch_toggle";
     column-gap: 18px;
+    grid-template-columns: max-content max-content;
+    row-gap: 14px;
+    border: 1px solid #cbdeff;
+    border-radius: 4px;
+    padding: 8px;
 }
 
 .setting_block {
