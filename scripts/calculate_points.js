@@ -24,11 +24,11 @@ function collectPoints() {
 
 function managePoints() {
 	const startAngleValue = document.getElementById('start_angle_input');
-	const pitchValue = document.getElementById('pitch_input');
+	const commonPitchValue = document.getElementById('common_pitch_input');
 	const feedRateValue = document.getElementById('feed_rate_input');
 	const startsToggle = document.getElementById('starts_toggle');
 	let startAngle = Number(startAngleValue.value) ? Number(startAngleValue.value) : 0;
-	const pitch = Number(pitchValue.value) ? Number(pitchValue.value) : 1;
+	const pitch = Number(commonPitchValue.value) ? Number(commonPitchValue.value) : 1;
 	const feedRate = Number(feedRateValue.value) ? Number(feedRateValue.value) : 0;
 	const twoStarts = startsToggle.checked;
 	outputArea.value = '';
