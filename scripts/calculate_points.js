@@ -46,12 +46,8 @@ function addNCMainHeader() {
 	outputArea.value += '\n';
 	outputArea.value += 'M80 S3=5000\n';
 	outputArea.value += 'G0 Z-5. T00\n';
-	outputArea.value += 'X10. Y0.\n';
-	outputArea.value += 'G1 G98 Z0. F150.\n';
-	outputArea.value += '\n';
-	outputArea.value += '(START 1)\n';
-	outputArea.value += 'X2.\n';
-	outputArea.value += '\n';
+	outputArea.value += 'X10. Y0. Z0. (SAFETY POINT)\n';
+	outputArea.value += 'G98 (FEED PER MINUTE)\n';
 }
 
 function addNCSecondHeader() {
