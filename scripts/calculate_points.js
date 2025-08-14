@@ -65,8 +65,6 @@ function addNCSecondHeader() {
 	outputArea.value += 'X2.\n';
 }
 
-	outputArea.value += '\n';
-	outputArea.value += 'X10. F150.\n';
 function addNCFooter() {
 	outputArea.value += 'G0 Z-5.\n';
 	outputArea.value += 'G0 U0. V0. W0. T0\n';
