@@ -32,6 +32,7 @@ function managePoints() {
 	calculatePoints(pitch, startAngle, feedRate);
 
 	if (twoStarts) {
+		addSafetyPoint();
 		addNCSecondHeader();
 		startAngle += 180;
 		calculatePoints(pitch, startAngle, feedRate);
@@ -62,8 +63,14 @@ function addNCSecondHeader() {
 }
 
 function addNCFooter() {
+	addSafetyPoint();
 	outputArea.value += 'G0 Z-5.\n';
 	outputArea.value += 'G0 U0. V0. W0. T0\n';
+}
+
+function addSafetyPoint() {
+	outputArea.value += '\n';
+	outputArea.value += 'X10. F150.  (SAFETY POINT)\n';
 }
 
 function calculatePoints(pitch, startAngle, feedRate) {
