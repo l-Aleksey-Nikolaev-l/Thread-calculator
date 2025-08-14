@@ -1,5 +1,6 @@
 import PointsContainer from './points_container.js';
 import collectPoints from './calculate_points.js';
+import switchVariablePitch from './switch_variable_pitch.js';
 
 function startListeners() {
 	const pointsContainer = document.getElementsByClassName('points_container');
@@ -30,6 +31,7 @@ function startListeners() {
 	});
 
 	variablePitchToggle.addEventListener('change', () => {
+		switchVariablePitch();
 	});
 }
 
