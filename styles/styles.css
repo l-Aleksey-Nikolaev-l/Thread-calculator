@@ -196,6 +196,10 @@
     color: transparent;
 }
 
+.variable_pitch_disabled {
+    display: none;
+}
+
 .buttons_container {
     display: flex;
     flex-direction: row;
