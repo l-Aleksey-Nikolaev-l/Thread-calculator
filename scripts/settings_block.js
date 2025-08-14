@@ -18,34 +18,31 @@ class SettingsBlock {
 		return settingContainer;
 	}
 
-	#addStartsOption() {
-		const startsContainer = document.createElement('div');
+	#addToggleOption(className, topText, leftText, rightText) {
+		const optionContainer = document.createElement('div');
 		const toggleContainer = document.createElement('div');
-		const startsLabel = document.createElement('p');
-		const oneStart = document.createElement('span');
-		const twoStarts = document.createElement('span');
-		const startsToggle = this.#createToggleButton();
-		startsContainer.classList.add('setting_block', 'starts_container');
+		const optionLabel = document.createElement('p');
+		const leftToggleText = document.createElement('span');
+		const rightToggleText = document.createElement('span');
+		const startsToggle = this.#createToggleButton(className);
+		optionContainer.classList.add('setting_block', `${className}_container`);
 		toggleContainer.classList.add('toggle_group');
-		startsLabel.classList.add('starts_label');
-		oneStart.classList.add('starts_label', 'one_start_label');
-		twoStarts.classList.add('starts_label', 'two_starts_label');
-		startsLabel.textContent = 'Starts:'
-		oneStart.textContent = '1';
-		twoStarts.textContent = '2';
-		toggleContainer.append(oneStart, startsToggle, twoStarts);
-		startsContainer.append(startsLabel, toggleContainer);
-		return startsContainer;
+		optionLabel.textContent = topText
+		leftToggleText.textContent = leftText;
+		rightToggleText.textContent = rightText;
+		toggleContainer.append(leftToggleText, startsToggle, rightToggleText);
+		optionContainer.append(optionLabel, toggleContainer);
+		return optionContainer;
 	}
 
-	#createToggleButton() {
+	#createToggleButton(idName) {
 		const switchContainer = document.createElement('label');
 		const checkBox = document.createElement('input');
 		const slider = document.createElement('span');
 		switchContainer.classList.add('toggle_container');
 		checkBox.classList.add('toggle_checkbox');
 		slider.classList.add('toggle_slider');
-		checkBox.id = 'starts_toggle';
+		checkBox.id = `${idName}_toggle`;
 		checkBox.setAttribute('type', 'checkbox');
 		switchContainer.append(checkBox, slider);
 		return switchContainer;
