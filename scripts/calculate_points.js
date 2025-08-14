@@ -28,6 +28,7 @@ function managePoints() {
 	const twoStarts = startsToggle.checked;
 	outputArea.value = '';
 	addNCMainHeader();
+	addNCFirstHeader();
 	calculatePoints(pitch, startAngle, feedRate);
 
 	if (twoStarts) {
@@ -48,6 +49,11 @@ function addNCMainHeader() {
 	outputArea.value += 'G0 Z-5. T00\n';
 	outputArea.value += 'X10. Y0. Z0. (SAFETY POINT)\n';
 	outputArea.value += 'G98 (FEED PER MINUTE)\n';
+}
+
+function addNCFirstHeader() {
+	outputArea.value += '\n';
+	outputArea.value += '(START 1)\n';
 }
 
 function addNCSecondHeader() {
