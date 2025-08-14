@@ -25,7 +25,7 @@ class SettingsBlock {
 		const leftToggleText = document.createElement('span');
 		const rightToggleText = document.createElement('span');
 		const startsToggle = this.#createToggleButton(className);
-		optionContainer.classList.add('setting_block', `${className}_container`);
+		optionContainer.classList.add('setting_block', `${className}_toggle_container`);
 		toggleContainer.classList.add('toggle_group');
 		optionLabel.textContent = topText
 		leftToggleText.textContent = leftText;
@@ -52,7 +52,7 @@ class SettingsBlock {
 		const settingsContainer = document.createElement('div');
 		settingsContainer.classList.add('settings_container');
 		const toolNumber = this.#addSettingBlock(
-		  'toolNumber',
+		  'tool_number',
 		  'Tool #',
 		  '0');
 		const startAngle = this.#addSettingBlock(
@@ -60,7 +60,7 @@ class SettingsBlock {
 		  'Start angle',
 		  'Default 0º');
 		const pitch = this.#addSettingBlock(
-		  'pitch',
+		  'common_pitch',
 		  'Pitch',
 		  'Default 1');
 		const feedRate = this.#addSettingBlock(
