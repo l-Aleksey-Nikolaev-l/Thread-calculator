@@ -1,11 +1,11 @@
 import PointsContainer from './points_container.js';
 import collectPoints from './calculate_points.js';
 
-const pointsContainer = document.getElementsByClassName('points_container');
-const buttonsContainer = document.getElementsByClassName('buttons_container');
-const pointBlock = new PointsContainer().coordinatesPoint;
-
 function startListeners() {
+	const pointsContainer = document.getElementsByClassName('points_container');
+	const buttonsContainer = document.getElementsByClassName('buttons_container');
+	const pointBlock = new PointsContainer().coordinatesPoint;
+
 	buttonsContainer[0].addEventListener('click', (event) => {
 		const buttonData = event.target.dataset;
 		if (buttonData.addPoint) {
