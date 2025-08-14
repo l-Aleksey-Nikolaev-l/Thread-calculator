@@ -230,6 +230,10 @@
     display: none;
 }
 
+.point_value_Pitch {
+    width: 42px;
+}
+
 .buttons_container {
     display: flex;
     flex-direction: row;
