@@ -1,39 +1,44 @@
+let outputArea = null;
+let xPointsArray = [];
+let zPointsArray = [];
+// The main formula is: C = (Z / Pitch) * 360;
+
 function collectPoints() {
+	outputArea = document.getElementById('output_area');
 	const pointsContainer = document.getElementsByClassName('points_container');
 	const xValueElementsArray = pointsContainer[0].getElementsByClassName('point_value_X');
 	const zValueElementsArray = pointsContainer[0].getElementsByClassName('point_value_Z');
-	let xPointsArray = [];
-	let zPointsArray = [];
+	xPointsArray = [];
+	zPointsArray = [];
 	for (let point = 0; point < xValueElementsArray.length; point++) {
 		xPointsArray.push(Number(xValueElementsArray[point].value));
 		zPointsArray.push(Number(zValueElementsArray[point].value));
 	}
-	managePoints(xPointsArray, zPointsArray);
+	managePoints();
 }
 
-function managePoints(xPointsArray, zPointsArray) {
+function managePoints() {
 	const startAngleValue = document.getElementById('start_angle_input');
 	const pitchValue = document.getElementById('pitch_input');
 	const feedRateValue = document.getElementById('feed_rate_input');
 	const startsToggle = document.getElementById('starts_toggle');
-	const outputArea = document.getElementById('output_area');
 	let startAngle = Number(startAngleValue.value) ? Number(startAngleValue.value) : 0;
 	const pitch = Number(pitchValue.value) ? Number(pitchValue.value) : 1;
 	const feedRate = Number(feedRateValue.value) ? Number(feedRateValue.value) : 0;
 	const twoStarts = startsToggle.checked;
 	outputArea.value = '';
-	addNCHeader(outputArea);
-	calculatePoints(xPointsArray, zPointsArray, pitch, startAngle, feedRate);
+	addNCMainHeader();
+	calculatePoints(pitch, startAngle, feedRate);
 
 	if (twoStarts) {
-		addNCSecondHeader(outputArea);
+		addNCSecondHeader();
 		startAngle += 180;
-		calculatePoints(xPointsArray, zPointsArray, pitch, startAngle, feedRate);
+		calculatePoints(pitch, startAngle, feedRate);
 	}
-	addNCFooter(outputArea);
+	addNCFooter();
 }
 
-function addNCHeader(outputArea) {
+function addNCMainHeader() {
 	outputArea.value += 'M18 C0.\n';
 	outputArea.value += 'G50 C0.\n';
 	outputArea.value += '\n';
@@ -49,8 +54,7 @@ function addNCHeader(outputArea) {
 	outputArea.value += '\n';
 }
 
-function addNCSecondHeader(outputArea) {
-	outputArea.value += 'X10. F150.\n';
+function addNCSecondHeader() {
 	outputArea.value += '\n';
 	outputArea.value += '(START 2)\n';
 	outputArea.value += '\n';
@@ -59,14 +63,14 @@ function addNCSecondHeader(outputArea) {
 	outputArea.value += 'X2.\n';
 }
 
-function addNCFooter(outputArea) {
 	outputArea.value += '\n';
 	outputArea.value += 'X10. F150.\n';
+function addNCFooter() {
 	outputArea.value += 'G0 Z-5.\n';
 	outputArea.value += 'G0 U0. V0. W0. T0\n';
 }
 
-function calculatePoints(xPointsArray, zPointsArray, pitch, startAngle, feedRate) {
+function calculatePoints(pitch, startAngle, feedRate) {
 	zPointsArray.map((currentPointZ, index) => {
 		const newPointC = ((currentPointZ / pitch) * (360)) + startAngle;
 		const currentPointX = xPointsArray[index];
@@ -75,7 +79,6 @@ function calculatePoints(xPointsArray, zPointsArray, pitch, startAngle, feedRate
 }
 
 function writeNC(currentPointX, currentPointZ, newPointC, feedRate) {
-	const outputArea = document.getElementById('output_area');
 	outputArea.value += `X${convertToString(currentPointX)} `;
 	outputArea.value += `Z${convertToString(currentPointZ)} `;
 	outputArea.value += `C${convertToString(newPointC)} `;
