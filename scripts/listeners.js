@@ -4,6 +4,7 @@ import collectPoints from './calculate_points.js';
 function startListeners() {
 	const pointsContainer = document.getElementsByClassName('points_container');
 	const buttonsContainer = document.getElementsByClassName('buttons_container');
+	const variablePitchToggle = document.getElementById('variable_pitch_toggle');
 	const pointBlock = new PointsContainer().coordinatesPoint;
 
 	buttonsContainer[0].addEventListener('click', (event) => {
@@ -26,6 +27,9 @@ function startListeners() {
 		} else if (buttonData.copyOutput) {
 			navigator.clipboard.writeText(outputArea.value).then();
 		}
+	});
+
+	variablePitchToggle.addEventListener('change', () => {
 	});
 }
 
