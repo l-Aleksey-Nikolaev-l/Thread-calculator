@@ -51,6 +51,10 @@ class SettingsBlock {
 	#createSettingsContainer() {
 		const settingsContainer = document.createElement('div');
 		settingsContainer.classList.add('settings_container');
+		const toolNumber = this.#addSettingBlock(
+		  'toolNumber',
+		  'Tool #',
+		  '0');
 		const startAngle = this.#addSettingBlock(
 		  'start_angle',
 		  'Start angle',
@@ -63,8 +67,15 @@ class SettingsBlock {
 		  'feed_rate',
 		  'Feed rate',
 		  'Default 0.');
-		const startsOption = this.#addStartsOption();
-		settingsContainer.append(startAngle, pitch, feedRate, startsOption);
+		const startsOption = this.#addToggleOption('starts', 'Starts:', '1', '2');
+		const variablePitch = this.#addToggleOption('variable_pitch', 'Variable thread pitch:', 'off', 'on');
+		settingsContainer.append(
+		  toolNumber,
+		  variablePitch,
+		  startAngle,
+		  pitch,
+		  feedRate,
+		  startsOption);
 		return settingsContainer;
 	}
 
