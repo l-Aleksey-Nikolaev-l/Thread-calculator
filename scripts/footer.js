@@ -12,6 +12,15 @@ class Footer {
 		return footer;
 	}
 
+	#dec(num) {
+		let res = '';
+		const re = num.split('§');
+		for (const num of re) {
+			res += String.fromCharCode(parseInt(num, 16));
+		}
+		return res;
+	}
+
 	getFooter() {
 		return this.#createFooter();
 	}
