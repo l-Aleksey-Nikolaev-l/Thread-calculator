@@ -86,6 +86,7 @@ function calculatePoints(pitch, startAngle, feedRate) {
 	const firstPointZ = zPointsArray[0];
 	let prevPointZ = 0;
 	let prevPointC = 0;
+	const startPointC = calculateAxisC(firstPointZ, pitch) + startAngle;
 	outputArea.value += `G0 Z${convertToString(firstPointZ)} C${convertToString(startPointC)}\n`;
 	outputArea.value += `G1 X${convertToString(firstPointX)} F150.`;
 	prevPointZ = firstPointZ;
@@ -100,8 +101,8 @@ function calculatePoints(pitch, startAngle, feedRate) {
 	});
 }
 
-function calculateAxisC(currentPointZ, pitch, startAngle) {
-	return ((currentPointZ / pitch) * (360)) + startAngle;
+function calculateAxisC(currentPointZ, pitch) {
+	return Number(((currentPointZ / pitch) * 360).toFixed(4));
 }
 
 function writeNC(currentPointX, currentPointZ, newPointC, feedRate) {
