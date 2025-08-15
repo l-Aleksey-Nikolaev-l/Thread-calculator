@@ -24,12 +24,11 @@ function collectPoints() {
 function managePoints() {
 	const toolNumberValue = document.getElementById('tool_number_input');
 	const startAngleValue = document.getElementById('start_angle_input');
-	const commonPitchValue = document.getElementById('common_pitch_input');
 	const feedRateValue = document.getElementById('feed_rate_input');
 	const startsToggle = document.getElementById('starts_toggle');
 	const flexPitchToggle = document.getElementById('variable_pitch_toggle');
+	const isTwoStarts = startsToggle.checked;
 	const toolNumber = Number(toolNumberValue.value) ? Number(toolNumberValue.value) : '00';
-	const pitch = Number(commonPitchValue.value) ? Number(commonPitchValue.value) : 1;
 	const feedRate = Number(feedRateValue.value) ? Number(feedRateValue.value) : 0;
 	let startAngle = Number(startAngleValue.value) ? Number(startAngleValue.value) : 0;
 	let pitchArray = collectPitch(isFlexPitch);
@@ -37,7 +36,7 @@ function managePoints() {
 	addNCFirstHeader();
 	calculatePoints(pitchArray, startAngle, feedRate);
 
-	if (twoStarts) {
+	if (isTwoStarts) {
 		addSafetyPoint();
 		addNCSecondHeader();
 		startAngle += 180; // second start on the opposite side (180 degrees)
