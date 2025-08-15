@@ -231,6 +231,11 @@
     display: none;
 }
 
+.constant_pitch_disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
 .point_value_Pitch {
     width: 42px;
 }
