@@ -1,8 +1,14 @@
 const variablePitchInputs = document.getElementsByClassName('variable_pitch');
 
-function switchVariablePitch() {
+function switchVariablePitch(isChecked) {
+
 	for (const variablePitchInput of variablePitchInputs) {
-		variablePitchInput.classList.toggle('variable_pitch_disabled');
+		if (isChecked) {
+			variablePitchInput.classList.remove('variable_pitch_disabled');
+		}
+		else {
+			variablePitchInput.classList.add('variable_pitch_disabled');
+		}
 	}
 }
 

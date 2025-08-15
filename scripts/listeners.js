@@ -30,8 +30,8 @@ function startListeners() {
 		}
 	});
 
-	variablePitchToggle.addEventListener('change', () => {
-		switchVariablePitch();
+	variablePitchToggle.addEventListener('change', function () {
+		switchVariablePitch(this.checked);
 	});
 }
 
