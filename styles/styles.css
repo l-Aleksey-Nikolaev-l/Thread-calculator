@@ -13,12 +13,6 @@
     flex-direction: column;
 }
 
-.header {
-    position: relative;
-    height: 80px;
-    background-color: #cbdeff;
-}
-
 .main {
     position: relative;
     display: flex;
