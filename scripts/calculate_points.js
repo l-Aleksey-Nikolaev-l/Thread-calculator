@@ -109,7 +109,7 @@ function calculateAxisC(currentPointZ, pitch) {
 	return Number(((currentPointZ / pitch) * 360).toFixed(4));
 }
 
-function writeNC(currentPointX, currentPointZ, newPointC, feedRate) {
+function writeNC(currentPointX, currentPointZ, newPointC) {
 	outputArea.value += `X${convertToString(currentPointX)} `;
 	outputArea.value += `Z${convertToString(currentPointZ)} `;
 	outputArea.value += `C${convertToString(newPointC)} `;
