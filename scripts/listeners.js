@@ -5,6 +5,8 @@ import switchVariablePitch from './switch_variable_pitch.js';
 function startListeners() {
 	const pointsContainer = document.getElementsByClassName('points_container');
 	const buttonsContainer = document.getElementsByClassName('buttons_container');
+	const removePointButton = buttonsContainer[0].children.namedItem('remove_point_button');
+	const calculatePointsButton = buttonsContainer[0].children.namedItem('calculate_points_button');
 	const variablePitchToggle = document.getElementById('variable_pitch_toggle');
 	const pointBlock = new PointsContainer().coordinatesPoint;
 
@@ -17,6 +19,22 @@ function startListeners() {
 			pointBlock.removePointBlock();
 		} else if (buttonData.calculatePoints) {
 			collectPoints();
+			return;
+		}
+
+		if (buttonData.addPoint || buttonData.removePoint) {
+			const isExists = pointsContainer[0].lastChild;
+			if (isExists) {
+				removePointButton.classList.remove('disable_element');
+				calculatePointsButton.classList.remove('disable_element');
+				removePointButton.removeAttribute('disabled');
+				calculatePointsButton.removeAttribute('disabled');
+			} else {
+				removePointButton.classList.add('disable_element');
+				calculatePointsButton.classList.add('disable_element');
+				removePointButton.setAttribute('disabled', '');
+				calculatePointsButton.setAttribute('disabled', '');
+			}
 		}
 	});
 
