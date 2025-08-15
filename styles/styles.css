@@ -225,7 +225,7 @@
     display: none;
 }
 
-.constant_pitch_disabled {
+.disable_element {
     pointer-events: none;
     opacity: 0.4;
 }
