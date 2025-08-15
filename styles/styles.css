@@ -236,6 +236,11 @@
     opacity: 0.4;
 }
 
+.point_value_X,
+.point_value_Z {
+    width: 90px;
+}
+
 .point_value_Pitch {
     width: 42px;
 }
