@@ -84,9 +84,12 @@ function addSafetyPoint() {
 function calculatePoints(pitch, startAngle, feedRate) {
 	const firstPointX = xPointsArray[0];
 	const firstPointZ = zPointsArray[0];
-	const cPoint = calculateAxisC(firstPointZ, pitch, startAngle);
-	outputArea.value += `G0 Z${convertToString(firstPointZ)} C${convertToString(cPoint)}\n`;
-	outputArea.value += `G1 X${convertToString(firstPointX)} F150.\n`;
+	let prevPointZ = 0;
+	let prevPointC = 0;
+	outputArea.value += `G0 Z${convertToString(firstPointZ)} C${convertToString(startPointC)}\n`;
+	outputArea.value += `G1 X${convertToString(firstPointX)} F150.`;
+	prevPointZ = firstPointZ;
+	prevPointC = startPointC;
 	zPointsArray.map((currentPointZ, index) => {
 		if (index !== 0) { //skip first point for calculation
 			const newPointC = calculateAxisC(currentPointZ, pitch, startAngle);
