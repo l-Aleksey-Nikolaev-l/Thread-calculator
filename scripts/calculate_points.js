@@ -28,11 +28,13 @@ function managePoints() {
 	const commonPitchValue = document.getElementById('common_pitch_input');
 	const feedRateValue = document.getElementById('feed_rate_input');
 	const startsToggle = document.getElementById('starts_toggle');
-	let startAngle = Number(startAngleValue.value) ? Number(startAngleValue.value) : 0;
+	const flexPitchToggle = document.getElementById('variable_pitch_toggle');
 	const toolNumber = Number(toolNumberValue.value) ? Number(toolNumberValue.value) : '00';
 	const pitch = Number(commonPitchValue.value) ? Number(commonPitchValue.value) : 1;
 	const feedRate = Number(feedRateValue.value) ? Number(feedRateValue.value) : 0;
+	let startAngle = Number(startAngleValue.value) ? Number(startAngleValue.value) : 0;
 	const twoStarts = startsToggle.checked;
+	const flexPitch = flexPitchToggle.checked;
 	outputArea.value = '';
 	addNCMainHeader(toolNumber);
 	addNCFirstHeader();
