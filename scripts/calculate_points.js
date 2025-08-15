@@ -93,9 +93,13 @@ function calculatePoints(pitch, startAngle, feedRate) {
 	prevPointC = startPointC;
 	zPointsArray.map((currentPointZ, index) => {
 		if (index !== 0) { //skip first point for calculation
-			const newPointC = calculateAxisC(currentPointZ, pitch, startAngle);
 			const currentPointX = xPointsArray[index];
-			writeNC(currentPointX, currentPointZ, newPointC, feedRate);
+			const deltaZ = currentPointZ - prevPointZ;
+			const deltaC = calculateAxisC(deltaZ, pitch);
+			const currentPointC = deltaC + prevPointC;
+			prevPointZ = currentPointZ;
+			prevPointC = currentPointC;
+			writeNC(currentPointX, currentPointZ, currentPointC);
 		}
 		outputArea.value += index === 1 ? `F${convertToString(feedRate)}\n` : '\n';
 	});
