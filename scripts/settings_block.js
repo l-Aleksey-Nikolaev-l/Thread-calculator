@@ -57,16 +57,16 @@ class SettingsBlock {
 		  '0');
 		const startAngle = this.#addSettingBlock(
 		  'start_angle',
-		  'Start angle',
-		  'Default 0º');
+		  'Start angle (º)',
+		  '0');
 		const pitch = this.#addSettingBlock(
 		  'common_pitch',
-		  'Pitch',
-		  'Default 1');
+		  'Pitch (mm)',
+		  '1');
 		const feedRate = this.#addSettingBlock(
 		  'feed_rate',
-		  'Feed rate',
-		  'Default 0.');
+		  'Feed rate (f/min)',
+		  '0');
 		const startsOption = this.#addToggleOption('starts', 'Starts:', '1', '2');
 		const variablePitch = this.#addToggleOption('variable_pitch', 'Flex pitch:', 'off', 'on');
 		settingsContainer.append(
