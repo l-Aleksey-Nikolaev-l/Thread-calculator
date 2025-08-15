@@ -1,9 +1,9 @@
-let outputArea = null;
+let outputArea = document.createDocumentFragment();
 let xPointsArray = [];
 let zPointsArray = [];
 
 function resetVariables() {
-	outputArea = null;
+	outputArea.value = '';
 	xPointsArray = [];
 	zPointsArray = [];
 }
