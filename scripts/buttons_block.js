@@ -16,12 +16,12 @@ class ButtonsContainer {
 		  'add_point',
 		  'add-point',
 		  'add',
-		  'Add point');
+		  '+');
 		const removePointButton = this.#createButton(
 		  'remove_point',
 		  'remove-point',
 		  'remove',
-		  'Remove last point');
+		  '-');
 		const calculatePointsButton = this.#createButton(
 		  'calculate_points',
 		  'calculate-points',
