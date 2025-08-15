@@ -295,6 +295,7 @@
 }
 
 .calculate_points_button {
+    flex-grow: 1;
     background-color: #cbdeff;
 }
 
