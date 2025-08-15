@@ -24,14 +24,21 @@ class PointBlock {
 		const blockLabel = document.createElement('p');
 		const pointX = this.#addPointField('point', 'x_point',  '0 mm', 'X');
 		const pointZ = this.#addPointField('point', 'z_point',  '0 mm', 'Z');
-		const pitch = this.#addPointField('variable_pitch', 'pitch_value',  '0', 'Pitch');
-		pitch.classList.add('variable_pitch_disabled');
+		const pitchField = this.#addPointField('variable_pitch', 'pitch_value',  '0', 'Pitch');
+		this.#addVariablePitch(pitchField);
 		blockContainer.classList.add('point_block');
 		blockLabel.classList.add('block_label');
 		blockLabel.textContent = `Point ${this.blockNumber}:`
-		blockContainer.append(blockLabel, pointX, pointZ, pitch);
+		blockContainer.append(blockLabel, pointX, pointZ, pitchField);
 		this.blockNumber += 1;
 		return blockContainer;
+	}
+
+	#addVariablePitch(pitchField) {
+		const variablePitchToggle = document.getElementById('variable_pitch_toggle');
+		if(!variablePitchToggle?.checked) {
+			pitchField.classList.add('variable_pitch_disabled');
+		}
 	}
 
 	addPointBlock() {
