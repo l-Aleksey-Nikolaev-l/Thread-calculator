@@ -320,6 +320,7 @@
 }
 
 .copy_output_button {
+    width: 150px;
     background-color: rgba(188, 228, 152, 0.5);
 }
 
