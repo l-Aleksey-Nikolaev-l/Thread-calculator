@@ -94,9 +94,10 @@ function collectPitch(isFlexPitch) {
 function calculatePoints(pitchArray, startAngle, feedRate) {
 	const firstPointX = xPointsArray[0];
 	const firstPointZ = zPointsArray[0];
+	const firstPitch = pitchArray[0];
 	let prevPointZ = 0;
 	let prevPointC = 0;
-	const startPointC = calculateAxisC(firstPointZ, pitch) + startAngle;
+	const startPointC = calculateAxisC(firstPointZ, firstPitch) + startAngle;
 	outputArea.value += `G0 Z${convertToString(firstPointZ)} C${convertToString(startPointC)}\n`;
 	outputArea.value += `G1 X${convertToString(firstPointX)} F150.`;
 	prevPointZ = firstPointZ;
@@ -104,8 +105,9 @@ function calculatePoints(pitchArray, startAngle, feedRate) {
 	zPointsArray.map((currentPointZ, index) => {
 		if (index !== 0) { //skip first point for calculation
 			const currentPointX = xPointsArray[index];
+			const currentPitch = pitchArray[index];
 			const deltaZ = currentPointZ - prevPointZ;
-			const deltaC = calculateAxisC(deltaZ, pitch);
+			const deltaC = calculateAxisC(deltaZ, currentPitch);
 			const currentPointC = deltaC + prevPointC;
 			prevPointZ = currentPointZ;
 			prevPointC = currentPointC;
