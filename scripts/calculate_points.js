@@ -81,7 +81,7 @@ function addSafetyPoint() {
 	outputArea.value += 'X10. F150.  (SAFETY POINT)\n';
 }
 
-function calculatePoints(pitch, startAngle, feedRate) {
+function calculatePoints(pitchArray, startAngle, feedRate) {
 	const firstPointX = xPointsArray[0];
 	const firstPointZ = zPointsArray[0];
 	let prevPointZ = 0;
