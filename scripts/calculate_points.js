@@ -32,18 +32,16 @@ function managePoints() {
 	const pitch = Number(commonPitchValue.value) ? Number(commonPitchValue.value) : 1;
 	const feedRate = Number(feedRateValue.value) ? Number(feedRateValue.value) : 0;
 	let startAngle = Number(startAngleValue.value) ? Number(startAngleValue.value) : 0;
-	const twoStarts = startsToggle.checked;
-	const flexPitch = flexPitchToggle.checked;
-	outputArea.value = '';
+	let pitchArray = collectPitch(isFlexPitch);
 	addNCMainHeader(toolNumber);
 	addNCFirstHeader();
-	calculatePoints(pitch, startAngle, feedRate);
+	calculatePoints(pitchArray, startAngle, feedRate);
 
 	if (twoStarts) {
 		addSafetyPoint();
 		addNCSecondHeader();
 		startAngle += 180; // second start on the opposite side (180 degrees)
-		calculatePoints(pitch, startAngle, feedRate);
+		calculatePoints(pitchArray, startAngle, feedRate);
 	}
 	addNCFooter();
 }
@@ -79,6 +77,18 @@ function addNCFooter() {
 function addSafetyPoint() {
 	outputArea.value += '\n';
 	outputArea.value += 'X10. F150.  (SAFETY POINT)\n';
+}
+
+function collectPitch(isFlexPitch) {
+	const commonPitchValue = document.getElementById('common_pitch_input');
+	const constantPitch = Number(commonPitchValue.value) ? Number(commonPitchValue.value) : 1;
+	const pitchValueElementsArray = document.getElementsByClassName('point_value_Pitch');
+	const pitchArray = [];
+	xPointsArray.map((_, index) => {
+		let currentPitch = isFlexPitch ? Number(pitchValueElementsArray[index].value) : constantPitch;
+		pitchArray.push(currentPitch);
+	});
+	return pitchArray;
 }
 
 function calculatePoints(pitchArray, startAngle, feedRate) {
