@@ -28,6 +28,7 @@ function managePoints() {
 	const startsToggle = document.getElementById('starts_toggle');
 	const flexPitchToggle = document.getElementById('variable_pitch_toggle');
 	const isTwoStarts = startsToggle.checked;
+	const isFlexPitch = flexPitchToggle.checked;
 	const toolNumber = Number(toolNumberValue.value) ? Number(toolNumberValue.value) : '00';
 	const feedRate = Number(feedRateValue.value) ? Number(feedRateValue.value) : 0;
 	let startAngle = Number(startAngleValue.value) ? Number(startAngleValue.value) : 0;
