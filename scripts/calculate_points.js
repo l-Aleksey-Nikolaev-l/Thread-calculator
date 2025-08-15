@@ -1,7 +1,6 @@
 let outputArea = null;
 let xPointsArray = [];
 let zPointsArray = [];
-// The main formula is: C = (Z / Pitch) * 360;
 
 function resetVariables() {
 	outputArea = null;
@@ -43,7 +42,7 @@ function managePoints() {
 	if (twoStarts) {
 		addSafetyPoint();
 		addNCSecondHeader();
-		startAngle += 180;
+		startAngle += 180; // second start on the opposite side (180 degrees)
 		calculatePoints(pitch, startAngle, feedRate);
 	}
 	addNCFooter();
