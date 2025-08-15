@@ -23,16 +23,18 @@ function collectPoints() {
 }
 
 function managePoints() {
+	const toolNumberValue = document.getElementById('tool_number_input');
 	const startAngleValue = document.getElementById('start_angle_input');
 	const commonPitchValue = document.getElementById('common_pitch_input');
 	const feedRateValue = document.getElementById('feed_rate_input');
 	const startsToggle = document.getElementById('starts_toggle');
 	let startAngle = Number(startAngleValue.value) ? Number(startAngleValue.value) : 0;
+	const toolNumber = Number(toolNumberValue.value) ? Number(toolNumberValue.value) : '00';
 	const pitch = Number(commonPitchValue.value) ? Number(commonPitchValue.value) : 1;
 	const feedRate = Number(feedRateValue.value) ? Number(feedRateValue.value) : 0;
 	const twoStarts = startsToggle.checked;
 	outputArea.value = '';
-	addNCMainHeader();
+	addNCMainHeader(toolNumber);
 	addNCFirstHeader();
 	calculatePoints(pitch, startAngle, feedRate);
 
@@ -45,14 +47,14 @@ function managePoints() {
 	addNCFooter();
 }
 
-function addNCMainHeader() {
+function addNCMainHeader(toolNumber) {
 	outputArea.value += 'M18 C0.\n';
 	outputArea.value += 'G50 C0.\n';
 	outputArea.value += '\n';
-	outputArea.value += 'T0000 (T00 THREAD MILL)\n';
+	outputArea.value += `T${toolNumber}00 (T${toolNumber} THREAD MILL)\n`;
 	outputArea.value += '\n';
 	outputArea.value += 'M80 S3=5000\n';
-	outputArea.value += 'G0 Z-5. T00\n';
+	outputArea.value += `G0 Z-5. T${toolNumber}\n`;
 	outputArea.value += 'X10. Y0. Z0. (SAFETY POINT)\n';
 	outputArea.value += 'G98 (FEED PER MINUTE)\n';
 }
