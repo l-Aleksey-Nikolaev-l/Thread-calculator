@@ -93,6 +93,7 @@ function calculatePoints(pitch, startAngle, feedRate) {
 			const currentPointX = xPointsArray[index];
 			writeNC(currentPointX, currentPointZ, newPointC, feedRate);
 		}
+		outputArea.value += index === 1 ? `F${convertToString(feedRate)}\n` : '\n';
 	});
 }
 
@@ -104,8 +105,6 @@ function writeNC(currentPointX, currentPointZ, newPointC, feedRate) {
 	outputArea.value += `X${convertToString(currentPointX)} `;
 	outputArea.value += `Z${convertToString(currentPointZ)} `;
 	outputArea.value += `C${convertToString(newPointC)} `;
-	outputArea.value += `F${convertToString(feedRate)}`;
-	outputArea.value += `\n`;
 }
 
 function convertToString(point) {
