@@ -328,10 +328,11 @@
 
 .footer {
     position: relative;
-    height: 50px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: #fffddb;
+    padding: 16px;
+    border-top: 1px solid #cbdeff;
+    border-radius: 16px;
 }
